@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [ExecuteInEditMode]
 public class PixelPerfectScale : MonoBehaviour
@@ -12,7 +11,9 @@ public class PixelPerfectScale : MonoBehaviour
 	
 	private bool currentCropped = false;
 
-	void Update()
+    public static float ratio;
+
+    void Update()
 	{
 		if(screenPixelsY != (float)Screen.height || currentCropped != preferUncropped)
 		{
@@ -20,7 +21,6 @@ public class PixelPerfectScale : MonoBehaviour
 			currentCropped = preferUncropped;
 
 			float screenRatio = screenPixelsY/screenVerticalPixels;
-			float ratio;
 
 			if(preferUncropped)
 			{
