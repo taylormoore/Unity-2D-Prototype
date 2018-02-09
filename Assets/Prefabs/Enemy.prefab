@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 50992506605765344}
   - component: {fileID: 61244887666747424}
   - component: {fileID: 114146913284477976}
+  - component: {fileID: 114002752000824520}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -141,6 +142,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114002752000824520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802606082145364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e1ba39b30a0df4eaa4e0a226f5ea58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackDamage: 10
+  movementSpeed: 3
+  attackCooldown: 1
 --- !u!114 &114146913284477976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7b246aa54592547ad108c50bdad432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  maxHealth: 100
   healthbar: {fileID: 114791857765980872}
 --- !u!114 &114395086642706496
 MonoBehaviour:

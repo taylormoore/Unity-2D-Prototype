@@ -8,11 +8,10 @@ public class Projectile : MonoBehaviour
     Vector2 startPosition;
     public float movementSpeed;
     Vector2 direction;
-    Transform cameraTrans;
+    public int projectileDamage;
 
     void Start()
     {
-        cameraTrans = Camera.main.transform;
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         startPosition = transform.position;
         direction = (target - startPosition).normalized;
@@ -25,6 +24,15 @@ public class Projectile : MonoBehaviour
     void Update ()
     {
         transform.Translate(direction * Time.deltaTime * movementSpeed, Space.World);
+    }
+
+    private void OnTriggerEnter2D ( Collider2D collision )
+    {
+        if ( collision.gameObject.tag == "Enemy" )
+        {
+            collision.gameObject.SendMessage ( "ApplyDamage", projectileDamage );
+            Destroy ( gameObject );
+        }
     }
 
 }

@@ -1,22 +1,41 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStats : MonoBehaviour {
-
-    public int health = 10;
-    private int maxHealth = 10;
+public class CharacterStats : MonoBehaviour
+{
+    float health;
+    public int maxHealth;
     public Image healthbar;
 
-    public void ApplyDamage(int amount) {
-        health -= amount;
-        healthbar.fillAmount = (float)health / maxHealth;
+    void Start ()
+    {
+        health = maxHealth;
 
-        if (health <= 0) {
-            Death();
+        // TODO: Find a better place to do this
+        if (gameObject.tag == "Player")
+        {
+            PlayerManagement.AddPlayer ( gameObject );
         }
     }
 
-    public void Death() {
-        Destroy(gameObject);
+    public void ApplyDamage ( int amount )
+    {
+        health -= amount;
+        healthbar.fillAmount = health / maxHealth;
+
+        if ( health <= 0 )
+        {
+            Death ();
+        }
+    }
+
+    public void ApplyDamageAsPercentage(float percentage)
+    {
+        health *= percentage;
+    }
+
+    public void Death ()
+    {
+        Destroy ( gameObject );
     }
 }
