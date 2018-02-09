@@ -11,7 +11,7 @@ public class PixelPerfectScale : MonoBehaviour
 	
 	private bool currentCropped = false;
 
-    public static float ratio;
+    private float ratio;
 
     void Update()
 	{

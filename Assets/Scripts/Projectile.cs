@@ -8,16 +8,18 @@ public class Projectile : MonoBehaviour
     Vector2 startPosition;
     public float movementSpeed;
     Vector2 direction;
+    Transform cameraTrans;
 
     void Start()
     {
+        cameraTrans = Camera.main.transform;
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         startPosition = transform.position;
         direction = (target - startPosition).normalized;
         float dotValue = Vector2.Dot ( direction, Vector2.down );
         int rotateDirection = dotValue > 0 ? -1 : 1;
         float rotateAmount = Mathf.Acos ( Vector2.Dot ( Vector2.right, direction ) ) * 180 / Mathf.PI;
-        transform.Rotate ( 0, 0, rotateAmount * rotateDirection );
+        transform.Rotate ( 0, 0, rotateAmount * rotateDirection ); 
     }
 
     void Update ()
