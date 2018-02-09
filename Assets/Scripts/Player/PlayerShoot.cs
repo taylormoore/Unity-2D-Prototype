@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
     {
 		if ( Input.GetButtonDown("Fire1") )
         {
-           // Instantiate(projectile, transform.position, transform.Rotate();
+            Instantiate(projectile, transform.position, Quaternion.identity);
         }
 	}
 }
