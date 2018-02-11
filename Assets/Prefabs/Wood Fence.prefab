@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4727778953387704}
   - component: {fileID: 212105126551122156}
+  - component: {fileID: 114162597558689126}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -147,6 +148,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.11776972}
   m_EdgeRadius: 0
+--- !u!114 &114162597558689126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051388295749038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39aefccbbc87f94e8a8a5b7d5db72eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114314657714187922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +206,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: bbfc4bae63a61fb459046165fec79568, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.372}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

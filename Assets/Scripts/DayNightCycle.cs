@@ -6,7 +6,7 @@ public class DayNightCycle : MonoBehaviour
     private bool isDaytime = true;
     private float dayLength = 600;
     public Light ambientLight;
-    float dayRatio;
+    public static float lightIntensity;
     public enum TimeOfDay
     {
         day,
@@ -22,42 +22,35 @@ public class DayNightCycle : MonoBehaviour
 
     void FixedUpdate ()
     {
-        dayRatio = dayTimer / dayLength;
+        lightIntensity = dayTimer / dayLength;
+        ambientLight.intensity = lightIntensity;
+
 
         if (isDaytime)
         {
-            dayTimer--;
-
-            ambientLight.intensity = (dayTimer / dayLength);        
+            dayTimer--;    
         }
         else
         {
             dayTimer++;
-
-            ambientLight.intensity = (dayTimer / dayLength);
         }
 
         if ( dayTimer >= dayLength )
         {
-            isDaytime = !isDaytime;
-            
+            isDaytime = !isDaytime;     
         }
         else if (dayTimer <= 0)
         {
-            isDaytime = !isDaytime;
-            
+            isDaytime = !isDaytime; 
         }
 
-        if (dayRatio >= .5f )
+        if (lightIntensity >= .5f )
         {
             timeOfDay = TimeOfDay.day;
-            Debug.Log("day");
         }
         else
         {
             timeOfDay = TimeOfDay.night;
-            Debug.Log("night");
         }
-
     }
 }
