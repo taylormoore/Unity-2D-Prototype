@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class RotateArm : MonoBehaviour
 { 
-    Vector2 target;
-    Vector2 startPosition;
-    public float movementSpeed;
-    Vector2 direction;
-    public int projectileDamage;
 
-    void FixedUpdate()
+    void Update()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        startPosition = transform.position;
-        direction = (target - startPosition).normalized;
-        float dotValue = Vector2.Dot(direction, Vector2.down);
-        int rotateDirection = dotValue > 0 ? -1 : 1;
-        float rotateAmount = Mathf.Acos(Vector2.Dot(Vector2.right, direction)) * 180 / Mathf.PI;
-       // transform.Rotate(0, 0, rotateAmount * rotateDirection);
-        transform.rotation = Quaternion.EulerRotation(0f, 0f, rotateAmount * rotateDirection);
-        //transform.rotation =  new Vector3( 0f, 0f, rotateAmount * rotateDirection );
+        //Mouse Position in the world. It's important to give it some distance from the camera. 
+        //If the screen point is calculated right from the exact position of the camera, then it will
+        //just return the exact same position as the camera, which is no good.
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+
+        //Angle between mouse and this object
+        float angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
+
+        //Ta daa
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+    }
+
+    float AngleBetweenPoints(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
 
