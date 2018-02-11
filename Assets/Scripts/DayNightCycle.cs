@@ -3,8 +3,8 @@
 public class DayNightCycle : MonoBehaviour
 {	
 	private float dayTimer;
-    private bool isDaytime = true;
-    private float dayLength = 600;
+    private bool isSunRising;
+    private float dayLength =  600;
     public Light ambientLight;
     public static float lightIntensity;
     public enum TimeOfDay
@@ -25,23 +25,22 @@ public class DayNightCycle : MonoBehaviour
         lightIntensity = dayTimer / dayLength;
         ambientLight.intensity = lightIntensity;
 
-
-        if (isDaytime)
+        if ( dayTimer == dayLength )
         {
-            dayTimer--;    
+            isSunRising = false;
         }
-        else
+        else if (dayTimer == 0)
+        {
+            isSunRising = true;
+        }
+
+        if ( isSunRising )
         {
             dayTimer++;
         }
-
-        if ( dayTimer >= dayLength )
+        else
         {
-            isDaytime = !isDaytime;     
-        }
-        else if (dayTimer <= 0)
-        {
-            isDaytime = !isDaytime; 
+            dayTimer--;
         }
 
         if (lightIntensity >= .5f )
