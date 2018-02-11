@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeEnemyBehavior : BaseEnemy
 {
-    public Animator animator;
+    public Animator[] animators;
     public float attackCooldown;
     float lastAttack;
 
@@ -35,27 +35,36 @@ public class MeleeEnemyBehavior : BaseEnemy
 
     public void AttackPlayer()
     {
-        nearestPlayer.SendMessage ( "ApplyDamage", attackDamage );
+        nearestPlayer.SendMessage ( "ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver );
     }
 
     public void StartIdle ()
     {
-        animator.SetBool ( StringConstants.ShouldAttack, false );
-        animator.SetBool ( StringConstants.ShouldMove, false );
-        animator.SetBool ( StringConstants.ShouldIdle, true );
+        foreach (Animator animator in animators)
+        {
+            animator.SetBool(StringConstants.ShouldAttack, false);
+            animator.SetBool(StringConstants.ShouldMove, false);
+            animator.SetBool(StringConstants.ShouldIdle, true);
+        }
     }
 
     public void StartMove ()
     {
-        animator.SetBool ( StringConstants.ShouldAttack, false );
-        animator.SetBool ( StringConstants.ShouldMove, true );
-        animator.SetBool ( StringConstants.ShouldIdle, false );
+        foreach (Animator animator in animators)
+        {
+            animator.SetBool(StringConstants.ShouldAttack, false);
+            animator.SetBool(StringConstants.ShouldMove, true);
+            animator.SetBool(StringConstants.ShouldIdle, false);
+        }
     }
 
     public void StartAttack ()
     {
-        animator.SetBool ( StringConstants.ShouldAttack, true );
-        animator.SetBool ( StringConstants.ShouldMove, false );
-        animator.SetBool ( StringConstants.ShouldIdle, false );
+        foreach (Animator animator in animators)
+        {
+            animator.SetBool(StringConstants.ShouldAttack, true);
+            animator.SetBool(StringConstants.ShouldMove, false);
+            animator.SetBool(StringConstants.ShouldIdle, false);
+        }
     }
 }

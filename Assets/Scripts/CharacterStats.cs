@@ -6,6 +6,7 @@ public class CharacterStats : MonoBehaviour
     float health;
     public int maxHealth;
     public Image healthbar;
+    public SpriteRenderer sr;
 
     void Start ()
     {
@@ -17,6 +18,8 @@ public class CharacterStats : MonoBehaviour
             PlayerManagement.AddPlayer ( gameObject );
         }
     }
+
+    
 
     public void ApplyDamage ( int amount )
     {

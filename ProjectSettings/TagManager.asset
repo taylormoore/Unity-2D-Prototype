@@ -48,6 +48,9 @@ TagManager:
   - name: Ground Detail
     uniqueID: 453797103
     locked: 0
+  - name: Shadow
+    uniqueID: 2656558385
+    locked: 0
   - name: Object
     uniqueID: 2373587425
     locked: 0
@@ -56,6 +59,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4243355027
+    locked: 0
+  - name: Particles
+    uniqueID: 2979591561
     locked: 0
   - name: UI
     uniqueID: 4187398549
