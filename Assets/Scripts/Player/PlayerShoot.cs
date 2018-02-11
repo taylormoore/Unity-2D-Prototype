@@ -3,12 +3,13 @@
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject arms;
 
     void Update ()
     {
 		if ( Input.GetButtonDown("Fire1") )
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, arms.transform.position, Quaternion.identity);
         }
 	}
 }
