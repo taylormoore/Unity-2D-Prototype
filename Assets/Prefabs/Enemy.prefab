@@ -228,6 +228,9 @@ MonoBehaviour:
   maxHealth: 100
   healthbar: {fileID: 114791857765980872}
   enemyDetectionDistance: 5
+  spriteRenderers:
+  - {fileID: 212003431484835828}
+  - {fileID: 212573382510517164}
   animators:
   - {fileID: 95886609273148214}
   - {fileID: 95762099642515056}

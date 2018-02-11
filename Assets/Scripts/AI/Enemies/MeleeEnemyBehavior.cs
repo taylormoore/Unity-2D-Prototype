@@ -18,6 +18,11 @@ public class MeleeEnemyBehavior : BaseEnemy
             }
             else if (!inRangeToAttack)
             {
+                bool shouldFaceRight = IsPlayerOnRightSide ();
+                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                {
+                    spriteRenderer.flipX = !shouldFaceRight;
+                }
                 StartMove ();
                 float speed = movementSpeed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards ( transform.position, nearestPlayer.transform.position, speed );

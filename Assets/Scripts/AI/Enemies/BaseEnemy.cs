@@ -12,7 +12,8 @@ public class BaseEnemy : MonoBehaviour {
     public int maxHealth;
     public Image healthbar;
     public float enemyDetectionDistance;
-    
+    public SpriteRenderer[] spriteRenderers;
+
     protected GameObject nearestPlayer = null;
     protected float distanceToPlayer;
     protected bool inRangeToAttack = false;
@@ -85,6 +86,11 @@ public class BaseEnemy : MonoBehaviour {
 
         // TODO: a little offset off of enemy.
         Instantiate ( droppables[ dropIndex ], transform.position, Quaternion.identity );
+    }
+
+    protected bool IsPlayerOnRightSide ()
+    {
+        return Vector2.Dot ( transform.right, nearestPlayer.transform.position ) > Vector2.Dot ( transform.right, transform.position );
     }
 
     private void OnDestroy ()
