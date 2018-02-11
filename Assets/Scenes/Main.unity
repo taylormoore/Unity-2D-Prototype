@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 462084161}
   - component: {fileID: 462084160}
   m_Layer: 0
-  m_Name: Directional light
+  m_Name: Ambient Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,11 +643,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4996495791585288, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.585
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 4996495791585288, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.297
+      value: 0.526
       objectReference: {fileID: 0}
     - target: {fileID: 4996495791585288, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalPosition.z
@@ -709,15 +709,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4617659213882414, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.2652389
+      value: 1.1002865
       objectReference: {fileID: 0}
     - target: {fileID: 4617659213882414, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.2652389
+      value: 1.1002865
       objectReference: {fileID: 0}
     - target: {fileID: 4617659213882414, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.2652389
+      value: 1.1002865
       objectReference: {fileID: 0}
     - target: {fileID: 4626975082129122, guid: a40966a2e315e2c4481d440868361197, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1164,11 +1164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4844478770884288, guid: 377e597375520c246973c07bafbaf037, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.65
+      value: 10.85
       objectReference: {fileID: 0}
     - target: {fileID: 4844478770884288, guid: 377e597375520c246973c07bafbaf037, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.03
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 4844478770884288, guid: 377e597375520c246973c07bafbaf037, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1207,6 +1207,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377e597375520c246973c07bafbaf037, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1527039302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1527039304}
+  - component: {fileID: 1527039303}
+  m_Layer: 0
+  m_Name: Day Night Cycle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1527039303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1527039302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66d358927c32442b039160eea36679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientLight: {fileID: 462084160}
+--- !u!4 &1527039304
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1527039302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8857435, y: 2.5911174, z: -0.011072778}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565006597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1379,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 938647918
+  randomSeed: -1484732936
   InitialModule:
     serializedVersion: 3
     enabled: 1
