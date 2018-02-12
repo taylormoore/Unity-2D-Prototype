@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float movementSpeed;
     Vector2 movementDirection;
     public int projectileDamage;
+    public GameObject hitEffect;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Projectile : MonoBehaviour
         if ( collision.gameObject.tag == "Enemy" )
         {
             collision.gameObject.SendMessage ( "ApplyDamage", projectileDamage );
+            Destroy(Instantiate(hitEffect, collision.transform.position, collision.transform.rotation), 2f);
             Destroy ( gameObject );
         }
     }
