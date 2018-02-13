@@ -5,7 +5,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject bulletCasing;
-    public GameObject arms;
+    public GameObject projectileSpawn;
     public Sprite notFiringSprite;
     public Sprite firingSprite;
     public SpriteRenderer sprite;
@@ -15,8 +15,8 @@ public class PlayerShoot : MonoBehaviour
     {
 		if ( Input.GetButtonDown("Fire1") )
         {
-            Instantiate(projectile, arms.transform.position, Quaternion.identity);
-            Instantiate(bulletCasing, new Vector3(arms.transform.position.x - .5f, arms.transform.position.y, arms.transform.position.z), Quaternion.identity);
+            Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity);
+            Instantiate(bulletCasing, new Vector3(projectileSpawn.transform.position.x - .5f, projectileSpawn.transform.position.y, projectileSpawn.transform.position.z), Quaternion.identity);
            
             StartCoroutine("FirePistol");
         }

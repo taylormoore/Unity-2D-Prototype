@@ -4,7 +4,7 @@ public class DayNightCycle : MonoBehaviour
 {	
 	private float dayTimer;
     private bool isSunRising;
-    private float dayLength =  600;
+    public float dayLength =  600;
     public Light ambientLight;
     public static float lightIntensity;
     public enum TimeOfDay

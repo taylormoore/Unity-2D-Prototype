@@ -11,10 +11,22 @@ public class RotateArm : MonoBehaviour
 
     public static float currentArmRotation;
     public static Vector2 currentArmLocation;
+    public Transform leftSideWeaponTransform;
+    public Transform rightSideWeaponTransform;
 
     void Update()
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+
+        if (mouseWorldPosition.x - transform.position.x > 0)
+        {
+            transform.position = rightSideWeaponTransform.position;
+        }
+        else
+        {
+            transform.position = leftSideWeaponTransform.position;
+        }
+
         currentArmLocation = transform.position;
         
         currentArmRotation = Utility.RotationAmount(transform.position, mouseWorldPosition);
@@ -35,5 +47,7 @@ public class RotateArm : MonoBehaviour
             scale.y *= -1;
             transform.localScale = scale;
         }
+
+        
     }
 }
