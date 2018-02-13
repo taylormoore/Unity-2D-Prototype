@@ -3,13 +3,14 @@
 public class Projectile : MonoBehaviour
 {
 
-    Vector2 target;
-    Vector2 startPosition;
-    public float movementSpeed;
-    Vector2 movementDirection;
     public int projectileDamage;
     public GameObject hitEffect;
-    public GameObject armLocation;
+
+    Vector2 target;
+    Vector2 startPosition;
+    Vector2 projectileSpawnBack;
+    public float movementSpeed;
+    Vector2 movementDirection;
 
     float hitEffectOffset = 0.5f;
 
@@ -20,9 +21,9 @@ public class Projectile : MonoBehaviour
 
         // Rotate sprite
         transform.Rotate ( 0, 0, RotateArm.currentArmRotation );
-        
+
         // Get direction sprite should move
-        movementDirection = ( target - startPosition ).normalized;
+        movementDirection = ( ( Vector2 ) transform.position - projectileSpawnBack ).normalized;
     }
 
     void Update ()
@@ -39,6 +40,11 @@ public class Projectile : MonoBehaviour
             Destroy(Instantiate(hitEffect, ((Vector2)collision.transform.position) + offset, collision.transform.rotation), 2f);
             Destroy ( gameObject );
         }
+    }
+
+    public void SetProjectileSpawnBack(GameObject psb)
+    {
+        projectileSpawnBack = psb.transform.position;
     }
 
 }

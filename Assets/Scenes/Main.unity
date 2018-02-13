@@ -566,9 +566,82 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114145055775760936, guid: a40966a2e315e2c4481d440868361197,
+        type: 2}
+      propertyPath: projectileSpawnBack
+      value: 
+      objectReference: {fileID: 944556405}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a40966a2e315e2c4481d440868361197, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &383894250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000364366366446, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 383894251}
+  - component: {fileID: 383894252}
+  m_Layer: 0
+  m_Name: Muzzle Flash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383894251
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4907938732526248, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383894250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17, y: 0, z: -0.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 944556406}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &383894252
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 108967312079709048, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383894250}
+  m_Enabled: 0
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &462084159
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +857,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 643883532}
   smoothSpeed: 0.1
+--- !u!1 &944556405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1877281918676306, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 944556406}
+  m_Layer: 0
+  m_Name: Projectile Spawn Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &944556406
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4607575886762070, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944556405}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 0.13499999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 383894251}
+  m_Father: {fileID: 1131624809}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1067913114
 Prefab:
   m_ObjectHideFlags: 0
@@ -826,6 +930,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77bc9ac4572064249aa84b7644f5faa6, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1131624809 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4192490086785532, guid: a40966a2e315e2c4481d440868361197,
+    type: 2}
+  m_PrefabInternal: {fileID: 369105142}
 --- !u!1 &1168874225
 GameObject:
   m_ObjectHideFlags: 0
