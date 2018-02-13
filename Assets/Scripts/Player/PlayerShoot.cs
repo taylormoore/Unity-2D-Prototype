@@ -16,7 +16,7 @@ public class PlayerShoot : MonoBehaviour
 		if ( Input.GetButtonDown("Fire1") )
         {
             Instantiate(projectile, arms.transform.position, Quaternion.identity);
-            GameObject casing = Instantiate(bulletCasing, new Vector3(arms.transform.position.x - .5f, arms.transform.position.y, arms.transform.position.z), Quaternion.identity);
+            Instantiate(bulletCasing, new Vector3(arms.transform.position.x - .5f, arms.transform.position.y, arms.transform.position.z), Quaternion.identity);
            
             StartCoroutine("FirePistol");
         }
