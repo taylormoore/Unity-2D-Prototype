@@ -9,15 +9,17 @@ public class Projectile : MonoBehaviour
     Vector2 movementDirection;
     public int projectileDamage;
     public GameObject hitEffect;
+    public GameObject armLocation;
+
+    float hitEffectOffset = 0.5f;
 
     void Start()
     {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition );
-        startPosition = transform.position;
+        startPosition = RotateArm.currentArmLocation;
 
         // Rotate sprite
-        float rotateAmount = Utility.RotationAmount ( startPosition, target );
-        transform.Rotate ( 0, 0, rotateAmount );
+        transform.Rotate ( 0, 0, RotateArm.currentArmRotation );
         
         // Get direction sprite should move
         movementDirection = ( target - startPosition ).normalized;
@@ -33,7 +35,8 @@ public class Projectile : MonoBehaviour
         if ( collision.gameObject.tag == "Enemy" )
         {
             collision.gameObject.SendMessage ( "ApplyDamage", projectileDamage );
-            Destroy(Instantiate(hitEffect, collision.transform.position, collision.transform.rotation), 2f);
+            Vector2 offset = (transform.position - collision.transform.position) * hitEffectOffset;
+            Destroy(Instantiate(hitEffect, ((Vector2)collision.transform.position) + offset, collision.transform.rotation), 2f);
             Destroy ( gameObject );
         }
     }
