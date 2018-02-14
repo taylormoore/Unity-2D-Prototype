@@ -6,8 +6,8 @@ public class Projectile : MonoBehaviour
     public int projectileDamage;
     public GameObject hitEffect;
 
-    Vector2 target;
-    Vector2 startPosition;
+    //Vector2 target;
+   // Vector2 startPosition;
     Vector2 projectileSpawnBack;
     public float movementSpeed;
     Vector2 movementDirection;
@@ -16,8 +16,8 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition );
-        startPosition = RotateArm.currentArmLocation;
+        //target = Camera.main.ScreenToWorldPoint(Input.mousePosition );
+        //startPosition = RotateArm.currentArmLocation;
 
         // Rotate sprite
         transform.Rotate ( 0, 0, RotateArm.currentArmRotation );

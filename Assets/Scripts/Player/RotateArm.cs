@@ -24,6 +24,7 @@ public class RotateArm : MonoBehaviour
 
     void Update()
     {
+        playerPosition = PlayerManagement.GetNearestPlayer(transform.position).transform;
         mouseWorldPosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
         if (mouseWorldPosition.x - playerPosition.position.x < 0)
