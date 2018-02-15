@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerResourceManager : MonoBehaviour {
 
     /* Maps resource name to the amount the player has. */
-    static Dictionary<string, int> resourceAmounts = new Dictionary<string, int>();
+    public static Dictionary<string, int> resourceAmounts = new Dictionary<string, int>();
 
     public string[] gatherableResources;
 
@@ -13,7 +12,7 @@ public class PlayerResourceManager : MonoBehaviour {
     {
         foreach (string resource in gatherableResources)
         {
-            resourceAmounts.Add ( resource, 0 );
+            resourceAmounts.Add ( resource, 10 );
         }
     }
 
@@ -32,5 +31,10 @@ public class PlayerResourceManager : MonoBehaviour {
         }
         resourceAmounts[ resource ] += amount;
         Debug.Log ( "New amount of " + resource + ": " + resourceAmounts[ resource ] );
+    }
+
+    public static int GetPlayerAmmoCount()
+    {
+        return resourceAmounts["Pistol Ammo"];
     }
 }

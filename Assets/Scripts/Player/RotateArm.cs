@@ -17,10 +17,10 @@ public class RotateArm : MonoBehaviour
     Transform playerPosition;
     Vector3 mouseWorldPosition;
 
-    private void Start ()
-    {
-        playerPosition = PlayerManagement.GetNearestPlayer ( transform.position ).transform;
-    }
+    //private void Start ()
+    //{
+    //    playerPosition = PlayerManagement.GetNearestPlayer ( transform.position ).transform;
+    //}
 
     void Update()
     {
@@ -40,7 +40,7 @@ public class RotateArm : MonoBehaviour
 
         currentArmRotation = GetArmRotationBounded ();
         transform.rotation = Quaternion.Euler(0f, 0f, currentArmRotation);
-        Debug.Log ( currentArmRotation );
+       // Debug.Log ( currentArmRotation );
 
         float playerRotation = Utility.RotationAmount ( playerPosition.position, mouseWorldPosition );
         if ( ( Utility.InSecondQuadrant( playerRotation ) || Utility.InThirdQuadrant ( playerRotation ) ) && !hasBeenFlipped )

@@ -878,6 +878,7 @@ MonoBehaviour:
   firingSprite: {fileID: 21300002, guid: 12394bcd415762c4f99f68e68afdaf3e, type: 3}
   sprite: {fileID: 212899030794525430}
   muzzleFlash: {fileID: 108967312079709048}
+  ammo: 5
 --- !u!114 &114334724014379618
 MonoBehaviour:
   m_ObjectHideFlags: 1
