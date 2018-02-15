@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerResourceManager : MonoBehaviour {
 
     /* Maps resource name to the amount the player has. */
-    public static Dictionary<string, int> resourceAmounts = new Dictionary<string, int>();
+    private static Dictionary<string, int> resourceAmounts = new Dictionary<string, int>();
 
     public string[] gatherableResources;
 
@@ -26,15 +26,21 @@ public class PlayerResourceManager : MonoBehaviour {
         
         if (!resourceAmounts.ContainsKey( resource ) )
         {
-            Debug.LogError ( "Can't add resource *" + resource + "*. Add it in Start()" );
+            Debug.LogError ( "Can't add resource *" + resource + "*. Add it in PlayerResourceManager.Start()" );
             return;
         }
         resourceAmounts[ resource ] += amount;
         Debug.Log ( "New amount of " + resource + ": " + resourceAmounts[ resource ] );
     }
 
-    public static int GetPlayerAmmoCount()
+    public static int GetAmmoCount()
     {
-        return resourceAmounts["Pistol Ammo"];
+        return resourceAmounts[ StringConstants.LightAmmo ];
+    }
+
+    /* Decreases players ammo count, returns the resulting amount of ammo. */
+    public static int DecreaseAmmoCount(int amount)
+    {
+        return resourceAmounts[ StringConstants.LightAmmo ] - amount;
     }
 }

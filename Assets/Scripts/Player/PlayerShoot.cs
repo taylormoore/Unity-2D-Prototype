@@ -17,7 +17,7 @@ public class PlayerShoot : MonoBehaviour
 		if ( Input.GetButtonDown("Fire1") )
         {
            
-            if ( PlayerResourceManager.resourceAmounts [ "Pistol Ammo" ] > 0 )
+            if ( PlayerResourceManager.GetAmmoCount() > 0 )
             {
                 StartCoroutine("FirePistol");
             }
@@ -31,8 +31,7 @@ public class PlayerShoot : MonoBehaviour
     IEnumerator FirePistol()
     {
         GameObject bullet = Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity);
-        PlayerResourceManager.resourceAmounts["Pistol Ammo"] -= 1;
-        Debug.Log(PlayerResourceManager.resourceAmounts["Pistol Ammo"]);
+        PlayerResourceManager.DecreaseAmmoCount ( 1 );
         // TODO Shot sfx
         bullet.SendMessage ( "SetProjectileSpawnBack", projectileSpawnBack );
         Instantiate(bulletCasing, new Vector3(projectileSpawn.transform.position.x - .5f, projectileSpawn.transform.position.y, projectileSpawn.transform.position.z), Quaternion.identity);

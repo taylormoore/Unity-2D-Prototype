@@ -64,7 +64,8 @@ public class BaseEnemy : MonoBehaviour {
 
     public void ApplyDamageAsPercentage ( float percentage )
     {
-        health *= percentage;
+        Debug.Assert ( percentage <= 1, "Damage as a percentage must be <= 1." );
+        health *= ( 1 - percentage );
     }
 
     /* This function handles all enemy deaths.

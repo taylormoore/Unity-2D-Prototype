@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114673371960877770}
   - component: {fileID: 61300674347392802}
   m_Layer: 0
-  m_Name: Pistol Ammo
+  m_Name: Light Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

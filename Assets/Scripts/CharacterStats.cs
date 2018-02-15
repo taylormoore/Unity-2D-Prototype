@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     public Image healthbar;
     public SpriteRenderer sr;
 
-    void Start ()
+    void Awake ()
     {
         health = maxHealth;
 

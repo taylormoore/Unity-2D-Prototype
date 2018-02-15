@@ -896,6 +896,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114673371960877770, guid: a8ea393ed08130043ba9611a6bb338f3,
+        type: 2}
+      propertyPath: minAmount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114673371960877770, guid: a8ea393ed08130043ba9611a6bb338f3,
+        type: 2}
+      propertyPath: maxAmount
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8ea393ed08130043ba9611a6bb338f3, type: 2}
   m_IsPrefabParent: 0
@@ -1193,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gatherableResources:
   - GatherableWood
-  - Pistol Ammo
+  - Light Ammo
 --- !u!114 &1334028247
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,9 +16,6 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        //target = Camera.main.ScreenToWorldPoint(Input.mousePosition );
-        //startPosition = RotateArm.currentArmLocation;
-
         // Rotate sprite
         transform.Rotate ( 0, 0, RotateArm.currentArmRotation );
 

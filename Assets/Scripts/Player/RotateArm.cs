@@ -17,15 +17,17 @@ public class RotateArm : MonoBehaviour
     Transform playerPosition;
     Vector3 mouseWorldPosition;
 
-    //private void Start ()
-    //{
-    //    playerPosition = PlayerManagement.GetNearestPlayer ( transform.position ).transform;
-    //}
+    Camera mainCamera;
+
+    private void Start ()
+    {
+        playerPosition = PlayerManagement.GetNearestPlayer ( transform.position ).transform;
+        mainCamera = Camera.main;
+    }
 
     void Update()
     {
-        playerPosition = PlayerManagement.GetNearestPlayer(transform.position).transform;
-        mouseWorldPosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        mouseWorldPosition = mainCamera.ScreenToWorldPoint( Input.mousePosition );
 
         if (mouseWorldPosition.x - playerPosition.position.x < 0)
         {
