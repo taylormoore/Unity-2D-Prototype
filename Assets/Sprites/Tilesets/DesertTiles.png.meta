@@ -55,7 +55,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 4
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -92,8 +92,8 @@ TextureImporter:
       name: DesertTiles_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 1
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -106,8 +106,8 @@ TextureImporter:
       name: DesertTiles_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 35
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -120,8 +120,8 @@ TextureImporter:
       name: DesertTiles_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 69
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -134,8 +134,8 @@ TextureImporter:
       name: DesertTiles_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 103
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -148,8 +148,8 @@ TextureImporter:
       name: DesertTiles_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 137
+        y: 35
         width: 32
         height: 32
       alignment: 0
@@ -162,8 +162,8 @@ TextureImporter:
       name: DesertTiles_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 1
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -176,8 +176,8 @@ TextureImporter:
       name: DesertTiles_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 35
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -190,8 +190,8 @@ TextureImporter:
       name: DesertTiles_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 69
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -204,8 +204,8 @@ TextureImporter:
       name: DesertTiles_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 103
+        y: 1
         width: 32
         height: 32
       alignment: 0
