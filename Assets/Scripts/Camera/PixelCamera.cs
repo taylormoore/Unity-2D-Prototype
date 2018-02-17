@@ -2,7 +2,6 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-[AddComponentMenu("Image Effects/PixelBoy")]
 public class PixelCamera : MonoBehaviour
 {
     public int w = 720;

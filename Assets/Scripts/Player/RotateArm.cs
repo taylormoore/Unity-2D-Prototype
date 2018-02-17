@@ -39,10 +39,9 @@ public class RotateArm : MonoBehaviour
         }
 
         currentArmLocation = transform.position;
-
-        currentArmRotation = GetArmRotationBounded ();
+        float rotationAmount = Utility.RotationAmount(transform.position, mouseWorldPosition);
+        currentArmRotation = GetArmRotationBounded (rotationAmount);
         transform.rotation = Quaternion.Euler(0f, 0f, currentArmRotation);
-       // Debug.Log ( currentArmRotation );
 
         float playerRotation = Utility.RotationAmount ( playerPosition.position, mouseWorldPosition );
         if ( ( Utility.InSecondQuadrant( playerRotation ) || Utility.InThirdQuadrant ( playerRotation ) ) && !hasBeenFlipped )
@@ -62,9 +61,8 @@ public class RotateArm : MonoBehaviour
     }
 
     // 105, -112
-    float GetArmRotationBounded ()
+    float GetArmRotationBounded (float rotationAmount)
     {
-        float rotationAmount = Utility.RotationAmount ( transform.position, mouseWorldPosition );
         // Gun is in left hand
         if ( transform.position == leftSideWeaponTransform.position )
         {
