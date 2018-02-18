@@ -6,7 +6,6 @@ public class CharacterStats : MonoBehaviour
     float health;
     public int maxHealth;
     public Image healthbar;
-    public SpriteRenderer sr;
 
     void Awake ()
     {
