@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class MeleeEnemyBehavior : BaseEnemy
 {
-    public Animator[] animators;
+    public Animator[] spriteAndShadow;
     public float attackCooldown;
     float lastAttack;
+
+    private void Start ()
+    {
+        base.Start ();
+        DayNightCycle.dayNightListeners += DayNightBehaviorSwap;
+    }
 
     void Update ()
     {
@@ -38,6 +44,18 @@ public class MeleeEnemyBehavior : BaseEnemy
         }
     }
 
+    public void DayNightBehaviorSwap(DayNightCycle.TimeOfDay timeOfDay)
+    {
+        if (timeOfDay == DayNightCycle.TimeOfDay.day)
+        {
+            enemyDetectionDistanceCurrent = enemyDetectionDistanceDay;
+        }
+        else
+        {
+            enemyDetectionDistanceCurrent = enemyDetectionDistanceNight;
+        }
+    }
+
     public void AttackPlayer()
     {
         nearestPlayer.SendMessage ( "ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver );
@@ -45,7 +63,7 @@ public class MeleeEnemyBehavior : BaseEnemy
 
     public void StartIdle ()
     {
-        foreach (Animator animator in animators)
+        foreach (Animator animator in spriteAndShadow)
         {
             animator.SetBool(StringConstants.ShouldAttack, false);
             animator.SetBool(StringConstants.ShouldMove, false);
@@ -55,7 +73,7 @@ public class MeleeEnemyBehavior : BaseEnemy
 
     public void StartMove ()
     {
-        foreach (Animator animator in animators)
+        foreach (Animator animator in spriteAndShadow)
         {
             animator.SetBool(StringConstants.ShouldAttack, false);
             animator.SetBool(StringConstants.ShouldMove, true);
@@ -65,7 +83,7 @@ public class MeleeEnemyBehavior : BaseEnemy
 
     public void StartAttack ()
     {
-        foreach (Animator animator in animators)
+        foreach (Animator animator in spriteAndShadow)
         {
             animator.SetBool(StringConstants.ShouldAttack, true);
             animator.SetBool(StringConstants.ShouldMove, false);

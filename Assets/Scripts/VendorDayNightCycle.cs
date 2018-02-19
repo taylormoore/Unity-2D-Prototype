@@ -5,21 +5,14 @@ public class VendorDayNightCycle : MonoBehaviour
     public bool isOpen;
     public GameObject[] sprites;
 
-    private void FixedUpdate()
+    private void Start ()
     {
-        if ( DayNightCycle.timeOfDay == DayNightCycle.TimeOfDay.day && !isOpen)
-        {
-            ToggleAvailability();
-        }
-        else if (DayNightCycle.timeOfDay == DayNightCycle.TimeOfDay.night && isOpen )
-        {
-            ToggleAvailability();
-        }
+        DayNightCycle.dayNightListeners += ToggleAvailability;
     }
 
-    public void ToggleAvailability()
+    public void ToggleAvailability(DayNightCycle.TimeOfDay timeOfDay)
     {
-        isOpen = !isOpen;
+        isOpen = (timeOfDay == DayNightCycle.TimeOfDay.day);
         foreach(GameObject sprite in sprites)
         {
             sprite.SetActive(isOpen);

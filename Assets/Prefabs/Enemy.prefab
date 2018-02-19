@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 212003431484835828}
   - component: {fileID: 50992506605765344}
   - component: {fileID: 61244887666747424}
-  - component: {fileID: 114146913284477976}
   - component: {fileID: 114002752000824520}
   - component: {fileID: 95886609273148214}
   m_Layer: 0
@@ -220,35 +219,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e1ba39b30a0df4eaa4e0a226f5ea58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
+  attackRange: 10
   attackDamage: 10
   movementSpeed: 15
   droppables:
   - {fileID: 1418280820172956, guid: a8ea393ed08130043ba9611a6bb338f3, type: 2}
   maxHealth: 100
   healthbar: {fileID: 114791857765980872}
-  enemyDetectionDistance: 40
+  enemyDetectionDistanceDay: 50
+  enemyDetectionDistanceNight: 99999
   spriteRenderers:
   - {fileID: 212003431484835828}
   - {fileID: 212573382510517164}
-  animators:
+  spriteAndShadow:
   - {fileID: 95886609273148214}
   - {fileID: 95762099642515056}
   attackCooldown: 1
---- !u!114 &114146913284477976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802606082145364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7b246aa54592547ad108c50bdad432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthbar: {fileID: 114791857765980872}
-  sr: {fileID: 0}
 --- !u!114 &114395086642706496
 MonoBehaviour:
   m_ObjectHideFlags: 1

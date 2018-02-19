@@ -27,7 +27,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D ( Collider2D collision )
     {
-        if ( collision.gameObject.tag != "Player" )
+        string colliderTag = collision.gameObject.tag;
+        if ( colliderTag != "Player" && colliderTag != "GatherableResource" )
         {
             collision.gameObject.SendMessage ( "ApplyDamage", projectileDamage );
             Vector2 offset = (transform.position - collision.transform.position) * hitEffectOffset;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Interactable
+  - GatherableResource
   layers:
   - Default
   - TransparentFX

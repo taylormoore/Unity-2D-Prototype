@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
-{	
+{
+    public delegate void DayNightListener(TimeOfDay timeOfDay);
+    public static event DayNightListener dayNightListeners;
+
 	private float dayTimer;
     private bool isSunRising;
     public float dayLength =  600;
@@ -46,12 +49,12 @@ public class DayNightCycle : MonoBehaviour
         if (lightIntensity >= .5f )
         {
             timeOfDay = TimeOfDay.day;
-            PlayerUI.dayNightCycleIcon.sprite = PlayerUI.sun;
+            dayNightListeners ( timeOfDay );
         }
         else
         {
             timeOfDay = TimeOfDay.night;
-            PlayerUI.dayNightCycleIcon.sprite = PlayerUI.moon;
+            dayNightListeners ( timeOfDay );
         }
     }
 }

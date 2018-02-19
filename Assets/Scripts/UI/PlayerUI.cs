@@ -34,5 +34,18 @@ public class PlayerUI : MonoBehaviour
         woodText = wood;
         leadText = lead;
         dayNightCycleIcon = dayNight;
+        DayNightCycle.dayNightListeners += OnDayNightCycle;
+    }
+
+    public void OnDayNightCycle(DayNightCycle.TimeOfDay timeOfDay)
+    {
+        if (timeOfDay == DayNightCycle.TimeOfDay.day)
+        {
+            dayNightCycleIcon.sprite = sun;
+        }
+        else
+        {
+           dayNightCycleIcon.sprite = moon;
+        }
     }
 }

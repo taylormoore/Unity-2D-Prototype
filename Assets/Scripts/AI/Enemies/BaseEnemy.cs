@@ -11,25 +11,28 @@ public class BaseEnemy : MonoBehaviour {
     public GameObject[] droppables;
     public int maxHealth;
     public Image healthbar;
-    public float enemyDetectionDistance;
+    public float enemyDetectionDistanceDay;
+    public float enemyDetectionDistanceNight;
     public SpriteRenderer[] spriteRenderers;
 
     protected GameObject nearestPlayer = null;
     protected float distanceToPlayer;
     protected bool inRangeToAttack = false;
     protected bool isPlayerDetected = false;
+    protected float enemyDetectionDistanceCurrent;
 
     float health;
     protected bool deathCalled;
 
 
 
-    private void Start ()
+    protected void Start ()
     {
         // Give enemies attack range some randomness
         attackRange = Random.Range ( attackRange * 0.95f, attackRange * 1.05f );
         health = maxHealth;
-        Debug.Assert ( attackRange <= enemyDetectionDistance, "Attack range must be less than or equal to enemyDetectionDistance!" );
+        enemyDetectionDistanceCurrent = enemyDetectionDistanceDay;
+        Debug.Assert ( attackRange <= enemyDetectionDistanceCurrent, "Attack range must be less than or equal to enemyDetectionDistance!" );
     }
     
     void FixedUpdate () {
@@ -47,7 +50,7 @@ public class BaseEnemy : MonoBehaviour {
         {
             distanceToPlayer = Vector2.Distance ( nearestPlayer.transform.position, transform.position );
             inRangeToAttack = distanceToPlayer < attackRange;
-            isPlayerDetected = distanceToPlayer < enemyDetectionDistance;
+            isPlayerDetected = distanceToPlayer < enemyDetectionDistanceCurrent;
         }
     }
 
@@ -62,11 +65,11 @@ public class BaseEnemy : MonoBehaviour {
         }
     }
 
-    public void ApplyDamageAsPercentage ( float percentage )
-    {
-        Debug.Assert ( percentage <= 1, "Damage as a percentage must be <= 1." );
-        health *= ( 1 - percentage );
-    }
+    //public void ApplyDamageAsPercentage ( float percentage )
+    //{
+    //    Debug.Assert ( percentage <= 1, "Damage as a percentage must be <= 1." );
+    //    health *= ( 1 - percentage );
+    //}
 
     /* This function handles all enemy deaths.
      * TODO: Make it not actually destroy, but instead put them back in the enemy-pool. */
@@ -77,7 +80,10 @@ public class BaseEnemy : MonoBehaviour {
         {
             return;
         }
+
         DropItem ();
+
+        Destroy ( gameObject );
     }
 
     /* TODO: Again, eventually maybe don't instantiate an item here. */ 

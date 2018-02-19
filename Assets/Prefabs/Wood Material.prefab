@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114899515324302680}
   m_Layer: 0
   m_Name: Wood Material
-  m_TagString: Untagged
+  m_TagString: GatherableResource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

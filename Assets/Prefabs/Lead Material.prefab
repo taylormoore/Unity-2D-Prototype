@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61199071711069160}
   m_Layer: 0
   m_Name: Lead Material
-  m_TagString: Untagged
+  m_TagString: GatherableResource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
