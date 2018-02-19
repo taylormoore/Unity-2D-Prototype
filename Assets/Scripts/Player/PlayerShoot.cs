@@ -6,7 +6,6 @@ public class PlayerShoot : MonoBehaviour
     public GameObject projectile;
     public GameObject bulletCasing;
     public GameObject projectileSpawn;
-    public GameObject projectileSpawnBack;
     public Sprite notFiringSprite;
     public Sprite firingSprite;
     public SpriteRenderer sprite;
@@ -33,7 +32,6 @@ public class PlayerShoot : MonoBehaviour
         GameObject bullet = Instantiate( projectile, projectileSpawn.transform.position, Quaternion.identity );
         PlayerResourceManager.DecreaseResourceCount ( StringConstants.LightAmmo,  1 );
         // TODO Shot sfx
-        bullet.SendMessage ( "SetProjectileSpawnBack", projectileSpawnBack );
         Instantiate(bulletCasing, new Vector3(projectileSpawn.transform.position.x - .5f, projectileSpawn.transform.position.y, projectileSpawn.transform.position.z), Quaternion.identity);
         sprite.sprite = firingSprite;
         muzzleFlash.enabled = true;
