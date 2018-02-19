@@ -30,7 +30,7 @@ public class RotateArm : MonoBehaviour
         {
             transform.position = leftSideWeaponTransform.position;
         }
-        else if ( playerPosition.position.x - mousePosition.x < 0 )
+        else
         {
             transform.position = rightSideWeaponTransform.position;
         }
