@@ -870,7 +870,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1612281388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 28.03, y: -1.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 862725856}
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f66d358927c32442b039160eea36679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 6000000
+  dayLength: 600
   ambientLight: {fileID: 462084160}
 --- !u!4 &1527039304
 Transform:
@@ -2133,7 +2133,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1920506435
+  randomSeed: 2132833211
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5577,7 +5577,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &1612281395
