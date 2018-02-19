@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 114150103656342674}
   - component: {fileID: 58952412498138330}
   - component: {fileID: 114393939062591970}
+  - component: {fileID: 114183354404833688}
   m_Layer: 0
   m_Name: Vendor
   m_TagString: Interactable
@@ -134,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903905962245122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.6, y: -4.62, z: 0}
+  m_LocalPosition: {x: 55.7, y: 17.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4238300379981776}
@@ -246,6 +247,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212832237936841324}
+--- !u!114 &114183354404833688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903905962245122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401f1e9b2aa6a1a4192d510aabffeeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  sprites:
+  - {fileID: 1560821778690304}
+  - {fileID: 1162605017175058}
 --- !u!114 &114393939062591970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,7 +275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 0
   vendorWindow: {fileID: 1419500305295562}
-  canInteract: 0
 --- !u!114 &114760107269816400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,7 +328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Memes 4 Sale
+  m_Text: Vendor Items
 --- !u!212 &212832237936841324
 SpriteRenderer:
   m_ObjectHideFlags: 1

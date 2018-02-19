@@ -46,10 +46,12 @@ public class DayNightCycle : MonoBehaviour
         if (lightIntensity >= .5f )
         {
             timeOfDay = TimeOfDay.day;
+            PlayerUI.dayNightCycleIcon.sprite = PlayerUI.sun;
         }
         else
         {
             timeOfDay = TimeOfDay.night;
+            PlayerUI.dayNightCycleIcon.sprite = PlayerUI.moon;
         }
     }
 }
