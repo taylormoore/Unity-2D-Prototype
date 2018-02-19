@@ -35,7 +35,7 @@ public class BaseEnemy : MonoBehaviour {
         Debug.Assert ( attackRange <= enemyDetectionDistanceCurrent, "Attack range must be less than or equal to enemyDetectionDistance!" );
     }
     
-    void FixedUpdate () {
+    protected void FixedUpdate () {
         if ( nearestPlayer == null )
         {
             nearestPlayer = PlayerManagement.GetNearestPlayer ( transform.position );

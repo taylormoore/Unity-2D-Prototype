@@ -15,35 +15,32 @@ public class RotateArm : MonoBehaviour
     public Transform rightSideWeaponTransform;
     
     Transform playerPosition;
-    Vector3 mouseWorldPosition;
-
-    Camera mainCamera;
+    Vector3 mousePosition;
 
     private void Start ()
     {
         playerPosition = PlayerManagement.GetNearestPlayer ( transform.position ).transform;
-        mainCamera = Camera.main;
     }
 
     void Update()
     {
-        mouseWorldPosition = mainCamera.ScreenToWorldPoint( Input.mousePosition );
+        mousePosition = PlayerInput.mousePosition;
 
-        if (mouseWorldPosition.x - playerPosition.position.x < 0)
+        if (mousePosition.x - playerPosition.position.x < 0)
         {
             transform.position = leftSideWeaponTransform.position;
         }
-        else if ( playerPosition.position.x - mouseWorldPosition.x < 0 )
+        else if ( playerPosition.position.x - mousePosition.x < 0 )
         {
             transform.position = rightSideWeaponTransform.position;
         }
 
         currentArmLocation = transform.position;
-        float rotationAmount = Utility.RotationAmount(transform.position, mouseWorldPosition);
+        float rotationAmount = Utility.RotationAmount(transform.position, mousePosition);
         currentArmRotation = GetArmRotationBounded (rotationAmount);
         transform.rotation = Quaternion.Euler(0f, 0f, currentArmRotation);
 
-        float playerRotation = Utility.RotationAmount ( playerPosition.position, mouseWorldPosition );
+        float playerRotation = Utility.RotationAmount ( playerPosition.position, mousePosition );
         if ( ( Utility.InSecondQuadrant( playerRotation ) || Utility.InThirdQuadrant ( playerRotation ) ) && !hasBeenFlipped )
         {
             Vector3 scale = transform.localScale;

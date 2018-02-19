@@ -14,8 +14,9 @@ public class MeleeEnemyBehavior : BaseEnemy
         DayNightCycle.dayNightListeners += DayNightBehaviorSwap;
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
+        base.FixedUpdate ();
         if (nearestPlayer != null)
         {
             if (!isPlayerDetected)

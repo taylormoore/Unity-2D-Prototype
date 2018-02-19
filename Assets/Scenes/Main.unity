@@ -5790,6 +5790,9 @@ MonoBehaviour:
   animators:
   - {fileID: 830397665}
   - {fileID: 2059683815}
+  spriteAndShadow:
+  - {fileID: 830397666}
+  - {fileID: 2059683817}
 --- !u!114 &1612281390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25185,6 +25188,7 @@ GameObject:
   - component: {fileID: 2052245891}
   - component: {fileID: 2052245890}
   - component: {fileID: 2052245889}
+  - component: {fileID: 2052245892}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -25280,6 +25284,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!50 &2052245892
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052245887}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 2
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2059683814
 GameObject:
   m_ObjectHideFlags: 0
