@@ -14,6 +14,8 @@ public class PlayerResourceManager : MonoBehaviour {
         {
             resourceAmounts.Add ( resource, 10 );
         }
+
+        UpdatePlayerUI();
     }
 
     public static void AddResource(string resource, int amount)
@@ -31,16 +33,26 @@ public class PlayerResourceManager : MonoBehaviour {
         }
         resourceAmounts[ resource ] += amount;
         Debug.Log ( "New amount of " + resource + ": " + resourceAmounts[ resource ] );
+
+        UpdatePlayerUI();
     }
 
-    public static int GetAmmoCount()
+    public static int GetResourceCount(string resource)
     {
-        return resourceAmounts[ StringConstants.LightAmmo ];
+        return resourceAmounts[ resource ];
     }
 
-    /* Decreases players ammo count, returns the resulting amount of ammo. */
-    public static int DecreaseAmmoCount(int amount)
+    public static int DecreaseResourceCount(string resource, int amount)
     {
-        return resourceAmounts[ StringConstants.LightAmmo ] - amount;
+        resourceAmounts[resource] = resourceAmounts[ resource ] - amount;
+        UpdatePlayerUI();
+        return resourceAmounts[resource];
+    }
+
+    public static void UpdatePlayerUI()
+    {
+        PlayerUI.ammoText.text = "Ammo: " + resourceAmounts[StringConstants.LightAmmo].ToString();
+        PlayerUI.woodText.text = "Wood: " + resourceAmounts[StringConstants.WoodMaterial].ToString();
+        PlayerUI.leadText.text = "Lead: " + resourceAmounts[StringConstants.LeadMaterial].ToString();
     }
 }

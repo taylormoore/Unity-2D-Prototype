@@ -8,4 +8,6 @@ public static class StringConstants {
     public const string ShouldAttack = "ShouldAttack";
     public const string ShouldIdle = "ShouldIdle";
     public const string LightAmmo = "Light Ammo";
+    public const string WoodMaterial = "Wood Material";
+    public const string LeadMaterial = "Lead Material";
 }
