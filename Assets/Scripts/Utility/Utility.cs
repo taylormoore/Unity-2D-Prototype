@@ -31,4 +31,9 @@ public class Utility : MonoBehaviour {
     {
         return angle >= -90 && angle < 0;
     }
+
+    public static int Mod(int x, int n)
+    {
+        return (x % n + n) % n;
+    }
 }
