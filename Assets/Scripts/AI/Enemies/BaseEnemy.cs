@@ -24,6 +24,15 @@ public class BaseEnemy : MonoBehaviour {
     float health;
     protected bool deathCalled;
 
+    protected enum CurrentState
+    {
+        idle,
+        moving,
+        attacking
+    };
+
+    protected CurrentState currentState;
+
 
 
     protected void Start ()

@@ -8,29 +8,49 @@ public class MeleeEnemyBehavior : BaseEnemy
     public float attackCooldown;
     float lastAttack;
 
+    bool isAttacking;
+
+    int idleHash;
+    int movingHash;
+    int attackingHash;
+
     private new void Start ()
     {
         base.Start ();
         DayNightCycle.dayNightListeners += DayNightBehaviorSwap;
+        idleHash = Animator.StringToHash ( StringConstants.ShouldIdle );
+        movingHash = Animator.StringToHash ( StringConstants.ShouldMove );
+        attackingHash = Animator.StringToHash ( StringConstants.ShouldAttack );
     }
 
     new void FixedUpdate ()
     {
         base.FixedUpdate ();
-        if (nearestPlayer != null)
+        if ( nearestPlayer != null )
         {
-            if (!isPlayerDetected)
+            if ( !isPlayerDetected )
             {
-                StartIdle ();
+                if ( currentState != CurrentState.idle )
+                {
+                    currentState = CurrentState.idle;
+                    StartIdle ();
+                }
+
             }
-            else if (!inRangeToAttack)
+            else if ( !inRangeToAttack && !isAttacking )
             {
                 bool shouldFaceRight = IsPlayerOnRightSide ();
-                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                foreach ( SpriteRenderer spriteRenderer in spriteRenderers )
                 {
                     spriteRenderer.flipX = !shouldFaceRight;
                 }
-                StartMove ();
+
+                if ( currentState != CurrentState.moving )
+                {
+                    currentState = CurrentState.moving;
+                    StartMove ();
+                }
+
                 float speed = movementSpeed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards ( transform.position, nearestPlayer.transform.position, speed );
             }
@@ -38,16 +58,22 @@ public class MeleeEnemyBehavior : BaseEnemy
             {
                 if ( Time.time > lastAttack + attackCooldown )
                 {
-                    StartAttack ();
+                    isAttacking = true;
+                    if ( currentState != CurrentState.attacking )
+                    {
+                        currentState = CurrentState.attacking;
+                        StartAttack ();
+                    }
+
                     lastAttack = Time.time;
                 }
             }
         }
     }
 
-    public void DayNightBehaviorSwap(DayNightCycle.TimeOfDay timeOfDay)
+    public void DayNightBehaviorSwap ( DayNightCycle.TimeOfDay timeOfDay )
     {
-        if (timeOfDay == DayNightCycle.TimeOfDay.day)
+        if ( timeOfDay == DayNightCycle.TimeOfDay.day )
         {
             enemyDetectionDistanceCurrent = enemyDetectionDistanceDay;
         }
@@ -57,38 +83,43 @@ public class MeleeEnemyBehavior : BaseEnemy
         }
     }
 
-    public void AttackPlayer()
+    public void FinishedAttacking()
+    {
+        isAttacking = false;
+    }
+
+    public void AttackPlayer ()
     {
         nearestPlayer.SendMessage ( "ApplyDamage", attackDamage, SendMessageOptions.DontRequireReceiver );
     }
 
     public void StartIdle ()
     {
-        foreach (Animator animator in spriteAndShadow)
+        foreach ( Animator animator in spriteAndShadow )
         {
-            animator.SetBool(StringConstants.ShouldAttack, false);
-            animator.SetBool(StringConstants.ShouldMove, false);
-            animator.SetBool(StringConstants.ShouldIdle, true);
+            animator.SetBool ( attackingHash, false );
+            animator.SetBool ( movingHash, false );
+            animator.SetBool ( idleHash, true );
         }
     }
 
     public void StartMove ()
     {
-        foreach (Animator animator in spriteAndShadow)
+        foreach ( Animator animator in spriteAndShadow )
         {
-            animator.SetBool(StringConstants.ShouldAttack, false);
-            animator.SetBool(StringConstants.ShouldMove, true);
-            animator.SetBool(StringConstants.ShouldIdle, false);
+            animator.SetBool ( attackingHash, false );
+            animator.SetBool ( movingHash, true );
+            animator.SetBool ( idleHash, false );
         }
     }
 
     public void StartAttack ()
     {
-        foreach (Animator animator in spriteAndShadow)
+        foreach ( Animator animator in spriteAndShadow )
         {
-            animator.SetBool(StringConstants.ShouldAttack, true);
-            animator.SetBool(StringConstants.ShouldMove, false);
-            animator.SetBool(StringConstants.ShouldIdle, false);
+            animator.SetBool ( attackingHash, true );
+            animator.SetBool ( movingHash, false );
+            animator.SetBool ( idleHash, false );
         }
     }
 }
