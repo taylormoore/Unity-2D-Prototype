@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114314657714187922}
   - component: {fileID: 61321813337047908}
   - component: {fileID: 50431571489723212}
+  - component: {fileID: 114645427415801314}
   m_Layer: 0
   m_Name: Wood Fence
   m_TagString: Untagged
@@ -81,8 +82,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053990724527612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.5, y: 8.8, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7791348, y: 8.87677, z: 0.47804037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4310164115644290}
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 212346358108138684}
+--- !u!114 &114645427415801314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053990724527612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d81d1bceca8f344b51b58395ca422f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthbar: {fileID: 0}
+  itemsToDrop: []
 --- !u!212 &212105126551122156
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -18,7 +18,11 @@ public class DestructibleObject : MonoBehaviour
     public void ApplyDamage(int amount)
     {
         health -= amount;
-        healthbar.fillAmount = health / maxHealth;
+
+        if ( healthbar != null )
+        {
+            healthbar.fillAmount = health / maxHealth;
+        }
 
         if (health <= 0)
         {

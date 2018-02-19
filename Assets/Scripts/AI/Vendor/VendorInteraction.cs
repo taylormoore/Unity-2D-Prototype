@@ -38,4 +38,9 @@ public class VendorInteraction : MonoBehaviour
     {
         vendorWindow.SetActive(toggle);
     }
+
+    public void ApplyDamage(int amount)
+    {
+        // Exists to not be annoying.
+    }
 }
