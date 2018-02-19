@@ -7,7 +7,6 @@ public class PlayerAnimation : MonoBehaviour
     public SpriteRenderer[] spriteAndShadow;
 
     Vector3 mousePosition;
-    Vector3 playerPosition;
 
     private void FixedUpdate()
     {
@@ -34,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         mousePosition = PlayerInput.mousePosition;
-        playerPosition = gameObject.transform.position;
+
         if ( mousePosition.x - gameObject.transform.position.x < 0 )
         {
             FlipSprites ( true );

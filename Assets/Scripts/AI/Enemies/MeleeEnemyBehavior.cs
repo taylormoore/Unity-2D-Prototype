@@ -8,13 +8,13 @@ public class MeleeEnemyBehavior : BaseEnemy
     public float attackCooldown;
     float lastAttack;
 
-    private void Start ()
+    private new void Start ()
     {
         base.Start ();
         DayNightCycle.dayNightListeners += DayNightBehaviorSwap;
     }
 
-    void FixedUpdate ()
+    new void FixedUpdate ()
     {
         base.FixedUpdate ();
         if (nearestPlayer != null)
