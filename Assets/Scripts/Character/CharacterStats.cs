@@ -12,13 +12,12 @@ public class CharacterStats : MonoBehaviour
         health = maxHealth;
 
         // TODO: Find a better place to do this
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "Player" || gameObject.tag == "Player Damage Collider")
         {
-            PlayerManagement.AddPlayer ( gameObject );
+            PlayerManagement.AddPlayer ( gameObject.transform.parent.gameObject );
         }
-    }
 
-    
+    }
 
     public void ApplyDamage ( int amount )
     {

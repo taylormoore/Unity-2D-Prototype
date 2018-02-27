@@ -28,7 +28,8 @@ public class BaseEnemy : MonoBehaviour {
     {
         idle,
         moving,
-        attacking
+        attacking,
+        shooting
     };
 
     protected CurrentState currentState;

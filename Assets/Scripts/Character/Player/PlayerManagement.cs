@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerManagement : MonoBehaviour
 {
+    [SerializeField]
     static LinkedList<GameObject> players = new LinkedList<GameObject>();
 
     public static void AddPlayer( GameObject playerToAdd )

@@ -1,39 +1,36 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
 
     public int projectileDamage;
     public GameObject hitEffect;
-    
+
     public float movementSpeed;
     Vector2 movementDirection;
+    Vector2 target;
 
     float hitEffectOffset = 0.5f;
 
     void Start()
     {
-        // Rotate sprite
-        transform.Rotate ( 0, 0, RotateArm.currentArmRotation );
-
-        // Now just move forward
         movementDirection = transform.right;
     }
 
-    void Update ()
+    void Update()
     {
-        transform.Translate( movementDirection * Time.deltaTime * movementSpeed, Space.World);
+        transform.Translate(movementDirection * Time.deltaTime * movementSpeed, Space.World);
     }
 
-    private void OnTriggerEnter2D ( Collider2D collision )
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         string colliderTag = collision.gameObject.tag;
-        if ( colliderTag != "Player" && colliderTag != "GatherableResource" && colliderTag != "Projectile" )
+        if (colliderTag != "Enemy" && colliderTag != "GatherableResource" && colliderTag != "Projectile" && colliderTag != "Player")
         {
-            collision.gameObject.SendMessage ( "ApplyDamage", projectileDamage );
+            collision.gameObject.SendMessage("ApplyDamage", projectileDamage);
             Vector2 offset = (transform.position - collision.transform.position) * hitEffectOffset;
             Destroy(Instantiate(hitEffect, ((Vector2)collision.transform.position) + offset, collision.transform.rotation), 2f);
-            Destroy ( gameObject );
+            Destroy(gameObject);
         }
     }
 }

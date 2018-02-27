@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Interactable
   - GatherableResource
+  - Projectile
+  - Player Damage Collider
   layers:
   - Default
   - TransparentFX
