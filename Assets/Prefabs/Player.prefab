@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 61562876717668116}
   - component: {fileID: 114237089414259774}
   m_Layer: 0
-  m_Name: Player Damage Collider
-  m_TagString: Untagged
+  m_Name: Player Interaction Collider
+  m_TagString: Player Interaction Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,7 +8,7 @@ TagManager:
   - Interactable
   - GatherableResource
   - Projectile
-  - Player Damage Collider
+  - Player Interaction Collider
   layers:
   - Default
   - TransparentFX

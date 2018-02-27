@@ -844,10 +844,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1401028143583910, guid: a40966a2e315e2c4481d440868361197, type: 2}
-      propertyPath: m_TagString
-      value: Player Damage Collider
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a40966a2e315e2c4481d440868361197, type: 2}
   m_IsPrefabParent: 0
@@ -2058,6 +2054,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071504982379858, guid: 2edc921901df1c14689d2bee71e3a16b,
+        type: 2}
+      propertyPath: attackCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2edc921901df1c14689d2bee71e3a16b, type: 2}

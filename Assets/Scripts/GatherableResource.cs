@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GatherableResource : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class GatherableResource : MonoBehaviour
 
     private void OnTriggerEnter2D ( Collider2D collision )
     {
-        if ( collision.gameObject.tag.Equals ( "Player" ) )
+        if ( collision.gameObject.tag.Equals ( "Player Interaction Collider" ) )
         {
             PlayerResourceManager.AddResource ( gameObject.name, finalAmount );
             Destroy ( gameObject );
