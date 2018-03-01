@@ -26,7 +26,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(damageCircle.transform.position, 3f);
         foreach(Collider2D collider in colliders)
         {
-            if ( collider.gameObject.tag != "Player" )
+            if ( collider.gameObject.tag != "Player Interaction Collider" )
             {
                 collider.SendMessage("ApplyDamage", 10);
             }
