@@ -17,7 +17,7 @@ public class BaseEnemy : MonoBehaviour {
     protected float distanceToPlayer;
     protected bool inRangeToAttack = false;
     protected bool isPlayerDetected = false;
-    protected float enemyDetectionDistanceCurrent = 50f;
+    protected float enemyDetectionDistanceCurrent = 200f;
 
     float health;
     protected bool deathCalled;

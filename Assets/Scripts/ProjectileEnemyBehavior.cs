@@ -2,7 +2,6 @@
 
 public class ProjectileEnemyBehavior : BaseEnemy
 {
-   // public Animator[] spriteAndShadow;
     public float attackCooldown;
     public GameObject projectile;
     public GameObject projectileSpawn;
@@ -17,14 +16,12 @@ public class ProjectileEnemyBehavior : BaseEnemy
     private new void Start()
     {
         base.Start();
-      //  idleHash = Animator.StringToHash(StringConstants.ShouldIdle);
-      //  movingHash = Animator.StringToHash(StringConstants.ShouldMove);
-       // attackingHash = Animator.StringToHash(StringConstants.ShouldAttack);
     }
 
     new void FixedUpdate()
     {
         base.FixedUpdate();
+
         if (nearestPlayer != null)
         {
             if (!isPlayerDetected)
@@ -32,7 +29,6 @@ public class ProjectileEnemyBehavior : BaseEnemy
                 if (currentState != CurrentState.idle)
                 {
                     currentState = CurrentState.idle;
-                    //StartIdle();
                 }
 
             }
@@ -47,7 +43,6 @@ public class ProjectileEnemyBehavior : BaseEnemy
                 if (currentState != CurrentState.moving)
                 {
                     currentState = CurrentState.moving;
-                    //StartMove();
                 }
 
                 float speed = movementSpeed * Time.deltaTime;
@@ -62,9 +57,9 @@ public class ProjectileEnemyBehavior : BaseEnemy
                     {
                         currentState = CurrentState.attacking;
                         ShootProjectile();
+                        FinishedAttacking();
+                        lastAttack = Time.time;
                     }
-
-                    lastAttack = Time.time;
                 }
             }
         }
@@ -73,40 +68,11 @@ public class ProjectileEnemyBehavior : BaseEnemy
     public void FinishedAttacking()
     {
         isAttacking = false;
+        currentState = CurrentState.idle;
     }
 
     public void ShootProjectile()
     {
         Instantiate(projectile, transform.position, projectileSpawn.transform.rotation);
     }
-    /*
-    public void StartIdle()
-    {
-        foreach (Animator animator in spriteAndShadow)
-        {
-            animator.SetBool(attackingHash, false);
-            animator.SetBool(movingHash, false);
-            animator.SetBool(idleHash, true);
-        }
-    }
-
-    public void StartMove()
-    {
-        foreach (Animator animator in spriteAndShadow)
-        {
-            animator.SetBool(attackingHash, false);
-            animator.SetBool(movingHash, true);
-            animator.SetBool(idleHash, false);
-        }
-    }
-
-    public void StartShoot()
-    {
-        foreach (Animator animator in spriteAndShadow)
-        {
-            animator.SetBool(attackingHash, true);
-            animator.SetBool(movingHash, false);
-            animator.SetBool(idleHash, false);
-        }
-    } */
 }
