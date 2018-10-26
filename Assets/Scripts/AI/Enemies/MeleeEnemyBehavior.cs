@@ -17,7 +17,6 @@ public class MeleeEnemyBehavior : BaseEnemy
     private new void Start ()
     {
         base.Start ();
-        DayNightCycle.dayNightListeners += DayNightBehaviorSwap;
         idleHash = Animator.StringToHash ( StringConstants.ShouldIdle );
         movingHash = Animator.StringToHash ( StringConstants.ShouldMove );
         attackingHash = Animator.StringToHash ( StringConstants.ShouldAttack );
@@ -68,18 +67,6 @@ public class MeleeEnemyBehavior : BaseEnemy
                     lastAttack = Time.time;
                 }
             }
-        }
-    }
-
-    public void DayNightBehaviorSwap ( DayNightCycle.TimeOfDay timeOfDay )
-    {
-        if ( timeOfDay == DayNightCycle.TimeOfDay.day )
-        {
-            enemyDetectionDistanceCurrent = enemyDetectionDistanceDay;
-        }
-        else
-        {
-            enemyDetectionDistanceCurrent = enemyDetectionDistanceNight;
         }
     }
 

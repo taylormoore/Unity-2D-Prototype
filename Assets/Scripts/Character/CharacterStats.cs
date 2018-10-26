@@ -14,7 +14,7 @@ public class CharacterStats : MonoBehaviour
         // TODO: Find a better place to do this
         if (gameObject.tag == "Player" || gameObject.tag == "Player Interaction Collider")
         {
-            PlayerManagement.AddPlayer ( gameObject.transform.parent.gameObject );
+            PlayerManagement.AddPlayer ( gameObject.transform.gameObject );
         }
 
     }

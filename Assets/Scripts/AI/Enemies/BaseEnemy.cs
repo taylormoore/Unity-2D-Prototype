@@ -11,15 +11,13 @@ public class BaseEnemy : MonoBehaviour {
     public GameObject[] droppables;
     public int maxHealth;
     public Image healthbar;
-    public float enemyDetectionDistanceDay;
-    public float enemyDetectionDistanceNight;
     public SpriteRenderer[] spriteRenderers;
 
     protected GameObject nearestPlayer = null;
     protected float distanceToPlayer;
     protected bool inRangeToAttack = false;
     protected bool isPlayerDetected = false;
-    protected float enemyDetectionDistanceCurrent;
+    protected float enemyDetectionDistanceCurrent = 50f;
 
     float health;
     protected bool deathCalled;
@@ -34,14 +32,11 @@ public class BaseEnemy : MonoBehaviour {
 
     protected CurrentState currentState;
 
-
-
     protected void Start ()
     {
         // Give enemies attack range some randomness
         attackRange = Random.Range ( attackRange * 0.95f, attackRange * 1.05f );
         health = maxHealth;
-        enemyDetectionDistanceCurrent = enemyDetectionDistanceDay;
         Debug.Assert ( attackRange <= enemyDetectionDistanceCurrent, "Attack range must be less than or equal to enemyDetectionDistance!" );
     }
     
