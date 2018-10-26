@@ -13,7 +13,7 @@ public class GatherableResource : MonoBehaviour
 
     private void OnTriggerEnter2D ( Collider2D collision )
     {
-        if ( collision.gameObject.tag.Equals ( "Player Interaction Collider" ) )
+        if ( collision.gameObject.tag.Equals ( "Player" ) )
         {
             PlayerResourceManager.AddResource ( gameObject.name, finalAmount );
             Destroy ( gameObject );

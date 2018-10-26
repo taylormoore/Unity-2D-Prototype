@@ -2417,6 +2417,10 @@ Prefab:
       propertyPath: m_Name
       value: Spitter Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1115018047460082, guid: 2edc921901df1c14689d2bee71e3a16b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2edc921901df1c14689d2bee71e3a16b, type: 2}
   m_IsPrefabAsset: 0
