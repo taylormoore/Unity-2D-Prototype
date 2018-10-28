@@ -10,4 +10,5 @@ public static class StringConstants {
     public const string LightAmmo = "Light Ammo";
     public const string WoodMaterial = "Wood Material";
     public const string LeadMaterial = "Lead Material";
+    public static int bulletCasingAnim = Animator.StringToHash( "animChoice" );
 }

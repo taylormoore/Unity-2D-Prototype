@@ -5,16 +5,24 @@ using UnityEngine;
 public class BulletCasing : MonoBehaviour {
 
     public Animator animator;
+    public float duration;
 
     private void Start()
     {
         if (Random.value < .5)
         {
-            animator.SetBool("animChoice", true);
+            animator.SetBool(StringConstants.bulletCasingAnim, true);
         }
         else
         {
-            animator.SetBool("animChoice", false);
+            animator.SetBool( StringConstants.bulletCasingAnim, false);
         }
+        StartCoroutine( DelayedDestroy() );
+    }
+
+    IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds( duration );
+        Destroy( gameObject );
     }
 }
